@@ -9,9 +9,37 @@ st.title('Roller Coasters Around the World')
 df1 = pd.read_csv('roller_coasters.csv')
 df2 = pd.read_csv('Golden_Ticket_Award_Winners_Steel.csv')
 df3 = pd.read_csv('Golden_Ticket_Award_Winners_Steel.csv')
+st.write('Notice: This app is built to analyse four parts of roller coasters around the world.')
+
+# Part 1: The safe speed
+st.subheader('Part 1: the Safe Speed')
+st.write('According to the formula for circular motion v = (gr)^0.5, we choose g = 9.8 and r = height/2 to calculate the safe speed of roller coasters.')
+fig, ax = plt.subplots(figsize=(20, 10))
+v = 0
+v_list=[]
+df1 = df1[df1['height'] != 902]    
+for i in df1['height']:
+     v = ((i/2)*9.8)**0.5
+     v_list.append(v)
+plt.plot(v_list)
+st.pyplot(fig)
+st.write('As a result, the safe speed on the top should be between 0 and 35')
+st.write('In order to build a safe roller coasters, the safe speed should be considered seriously.')
+
+
+# Part 2: Material Type
+st.subheader('Part 2: Material Type')
+fig, ax=plt.subplots(figsize=(8, 5))
+x = np.array(df1.material_type.value_counts()/len(df1.material_type))#用一维数组存入各个饼块的尺寸。
+plt.pie(x, labels= ['Steel', 'na', 'Wooden', 'Hybrid'])
+plt.show()#显示饼状图
+st.pyplot(fig)
+st.write('according to the data, there are about four different types of roller coasters. It can be seen from the data that steel is the most used material for roller coasters , while hybrid is the least. ')
+st.write('Steel roller coasters are made for longer spans, more unique and more stable structures. Wooden roller coaster is the oldest and most classic, it can give people a unique sense of ups and downs, now the market began to use a new type of  mixed roller coaster, integrated the above two advantages')
+
 
 # Part 3: regression analysis
-st.subheader('Part 3: linear regression analysis')
+st.subheader('Part 3: Linear Regression Analysis')
 st.write('We use Excel to find the correlation of speed and height')
 from PIL import Image
 image = Image.open('regression1.jpg')
@@ -29,6 +57,7 @@ st.write('When we select the data of high ranking roller coasters, we find the r
 # Part 4: Popularity
 st.subheader('Part 4: Popularity')
 st.subheader('Steel Roller Coasters who won the Golden Ticket Award')
+st.write('Notice: Choose the four categories in the sidebox before, or there may be erro for exceeding the limitation')
 # points filter
 points_filter = st.slider('The minimal points:', 0, 1400, 59)
 df2 = df2[df2.Points >= points_filter]

@@ -29,7 +29,7 @@ st.write('In order to build a safe roller coasters, the safe speed should be con
 
 # Part 2: Material Type
 st.subheader('Part 2: Material Type')
-fig, ax=plt.subplots(figsize=(8, 5))
+fig, ax=plt.subplots(figsize=(8, 5)) 
 x = np.array(df1.material_type.value_counts()/len(df1.material_type))#用一维数组存入各个饼块的尺寸。
 plt.pie(x, labels= ['Steel', 'na', 'Wooden', 'Hybrid'])
 plt.show()#显示饼状图
@@ -120,4 +120,3 @@ x = np.array(df3.Supplier.value_counts()/len(df3.Supplier))#用一维数组存�
 plt.pie(x, labels= ['B&M', 'Intamin', 'RMC', 'Schwarzkopf', 'Rocky Mountain', 'Mack', 'Arrow', 'Morgan', 'Lagan', 'Vekoma', 'Schwarz', 'Chance', 'Premier', 'Morgan/Arrow', 'Zierer'])#绘制饼状图，默认是从x轴正方向逆时针开始绘图
 plt.show()#显示饼状图
 st.pyplot(fig)
-

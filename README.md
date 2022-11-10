@@ -47,7 +47,7 @@ The most popular 5 parks: Cedar Point, Carowinds, Six Flags New England, Six Fla
 
 The best 4 suppliers: Intamin, Rocky Mountain, B & M, and RMC
 
-You will see more graphs on our app, and there are three filters(minimal points, parks and three catrgories of points the roller coasters got).
+You will see more graphs on our app, and there are three filters(minimal points, parks and three catrgories of points the roller coasters got.
 
 # Conclusion
 
